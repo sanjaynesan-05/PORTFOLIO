@@ -1,0 +1,187 @@
+.pill-nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pill-nav {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    /* allows pills to stretch vertically if needed */
+    background: var(--pill-bg, #000);
+    border-radius: 9999px;
+    /* extremely large radius for pill shape */
+    padding: 8px;
+    /* space between nav edge and items */
+    overflow: visible;
+    /* so hover circle doesn't get clipped too early in some designs, though it can clip if desired */
+}
+
+/* Base logo styles */
+.pill-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    cursor: pointer;
+}
+
+.pill-logo img {
+    height: 36px;
+    width: auto;
+    transform-origin: center;
+}
+
+/* Nav items container */
+.pill-nav-items {
+    display: flex;
+}
+
+.pill-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 4px;
+    /* spacing between pills */
+}
+
+/* Individual Pill styling */
+.pill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 24px;
+    border-radius: 9999px;
+    background: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    /* critical for circle clipping */
+    isolation: isolate;
+    /* create new stacking context */
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+/* The expanding circle */
+.hover-circle {
+    position: absolute;
+    left: 50%;
+    border-radius: 50%;
+    background: var(--base, #fff);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Label stack to hold text and hover text */
+.label-stack {
+    position: relative;
+    display: block;
+}
+
+/* Default label */
+.pill-label {
+    display: block;
+    position: relative;
+    color: var(--pill-text, #fff);
+    font-weight: 500;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Hover label (usually matching base background) */
+.pill-label-hover {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--hover-text, #000);
+    font-weight: 500;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Hamburger menu button */
+.mobile-menu-button {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 16px;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: var(--base, #fff);
+    margin: 3px 0;
+    transform-origin: center;
+}
+
+/* Mobile Popover Menu */
+.mobile-menu-popover {
+    display: none;
+    /* Desktop hidden */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 16px;
+    background: var(--pill-bg, #000);
+    border-radius: 24px;
+    padding: 16px;
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+}
+
+.mobile-menu-link {
+    display: block;
+    padding: 12px 24px;
+    color: var(--pill-text, #fff);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 16px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link.is-active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--base, #fff);
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: flex !important;
+    }
+
+    /* When mobile popover is shown (handled by visibility in JS), ensure it flexes correctly */
+    .mobile-menu-popover {
+        display: block;
+        /* Overrides display:none, GSAP handles visibility */
+    }
+}

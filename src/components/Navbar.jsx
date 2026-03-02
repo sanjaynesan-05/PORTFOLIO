@@ -4,6 +4,7 @@ import logo from "../assets/logo.webp";
 import { styles } from "../styles";
 import { menu, close } from "../assets";
 import { navLinks } from "../constants";
+import PillNav from "./PillNav";
 
 const Navbar = () => {
   const location = useLocation();
@@ -88,78 +89,37 @@ const Navbar = () => {
     <nav
       className={`
         ${styles.paddingX}
-        w-full flex items-center py-4 fixed top-0 z-50
-        backdrop-blur-md border-b border-white/10 shadow-lg
+        w-full flex items-center py-4 fixed top-0 z-[100]
         transition-all duration-300 ease-in-out
-        ${showNavbar ? "translate-y-0" : "-translate-y-full"}
-        ${lastScrollY > 100 ? "bg-white/10" : "bg-transparent"}
+        ${showNavbar ? "translate-y-0" : "-translate-y-[120%]"}
+        ${lastScrollY > 100 ? "bg-primary/80 backdrop-blur-md shadow-lg" : "bg-transparent"}
       `}
     >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-        {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center gap-2"
-          onClick={() => {
-            setActive("");
-            navigate("/");
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-        >
-          <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
-          <p className="text-white text-[18px] font-bold cursor-pointer flex">
-            SANJAY NESAN J
-          </p>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden sm:flex flex-row gap-10 items-center">
-          {navLinks.map((nav) => (
-            <button
-              key={nav.id}
-              onClick={() => handleNavClick(nav.title, nav.id)}
-              className={`text-white text-sm font-semibold relative transition-all duration-300 hover:text-cyan-400 group ${
-                active === nav.id ? "text-cyan-400" : "text-white"
-              }`}
-            >
-              {nav.title}
-              <span
-                className={`absolute bottom-0 left-0 w-full h-[2px] bg-cyan-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ${
-                  active === nav.id ? "scale-x-100" : ""
-                }`}
-              ></span>
-            </button>
-          ))}
-        </div>
-
-        {/* Mobile Hamburger */}
-        <div className="sm:hidden flex justify-end items-center">
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
-            className="w-[28px] h-[28px] object-contain cursor-pointer"
-            onClick={() => setToggle(!toggle)}
-          />
-          <div
-            className={`${
-              toggle ? "flex" : "hidden"
-            } p-6 glassmorphism absolute top-20 right-0 mx-4 my-2 min-w-[160px] z-50 rounded-xl border border-white/10 backdrop-blur-md bg-white/10 shadow-xl`}
-          >
-            <ul className="list-none flex flex-col gap-4">
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  onClick={() => handleNavClick(nav.title, nav.id)}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.id ? "text-white" : "text-secondary"
-                  } hover:text-cyan-400`}
-                >
-                  {nav.title}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+      <div className="w-full flex justify-center items-center max-w-7xl mx-auto">
+        <PillNav
+          logo={logo}
+          logoAlt="Sanjay Nesan Logo"
+          items={navLinks.map((nav) => ({
+            href: (nav.id === "projects" || nav.id === "designs") ? `/${nav.id}` : `/#${nav.id}`,
+            label: nav.title,
+            onClick: (e) => {
+              if (nav.id !== "projects" && nav.id !== "designs") {
+                e.preventDefault();
+              }
+              handleNavClick(nav.title, nav.id);
+            }
+          }))}
+          activeHref={
+            (active === "projects" || active === "designs")
+              ? `/${active}`
+              : `/#${active}`
+          }
+          baseColor="#e2e8f0"
+          pillColor="#090325"
+          hoveredPillTextColor="#000000"
+          pillTextColor="#aaa6c3"
+          className="border border-white/10 shadow-xl"
+        />
       </div>
     </nav>
   );

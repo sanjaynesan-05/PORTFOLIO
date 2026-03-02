@@ -13,6 +13,8 @@ import ProfileCard from "./ProfileCard";
 import myAvatar from "../assets/me.webp";
 import logo from "../assets/logo.webp";
 import heroBg from "../assets/herobg.webp";
+import LetterGlitch from "./LetterGlitch";
+import DecryptedText from "./DecryptedText";
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState("");
@@ -55,18 +57,15 @@ const Hero = () => {
       id="hero"
       aria-label="Hero Banner"
     >
-      {/* ✅ Eager loaded hero background image */}
-      <img
-        src={heroBg}
-        alt="Hero Background"
-        width="1200"
-        height="630"
-        fetchpriority="high"
-        loading="eager"
-        decoding="async"
-        className="absolute inset-0 w-full h-full object-cover -z-10"
-        style={{ objectPosition: "center" }}
-      />
+      {/* ✅ Glitch effect background */}
+      <div className="absolute inset-0 w-full h-full -z-10">
+        <LetterGlitch
+          glitchSpeed={50}
+          centerVignette={true}
+          outerVignette={true}
+          smooth={true}
+        />
+      </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 z-0" />
@@ -91,10 +90,37 @@ const Hero = () => {
 
         {/* Hero Text */}
         <div className="text-center lg:text-left mt-10 lg:mt-0 max-w-xl px-2 sm:px-0">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:text-[2.75rem] font-bold text-white leading-snug tracking-tight">
-            WELCOME TO THE FUTURE OF{" "}
-            <span className="bg-gradient-to-r from-[#4c75f2] via-[#8e44ec] to-[#c471f5] text-transparent bg-clip-text font-extrabold tracking-wider">
-              TECHNOLOGIAA
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:text-[2.75rem] font-bold text-white leading-snug tracking-tight break-words">
+            <DecryptedText
+              text="WELCOME TO THE FUTURE"
+              animateOn="view"
+              revealDirection="start"
+              sequential
+              useOriginalCharsOnly={false}
+              speed={30}
+              maxIterations={12}
+            />{" "}
+            <span className="whitespace-nowrap">
+              <DecryptedText
+                text="OF"
+                animateOn="view"
+                revealDirection="start"
+                sequential
+                useOriginalCharsOnly={false}
+                speed={30}
+                maxIterations={12}
+              />{" "}
+              <span className="bg-gradient-to-r from-[#4c75f2] via-[#8e44ec] to-[#c471f5] text-transparent bg-clip-text font-extrabold tracking-wider inline-block">
+                <DecryptedText
+                  text="TECHNOLOGIAA"
+                  animateOn="view"
+                  revealDirection="start"
+                  sequential
+                  useOriginalCharsOnly={false}
+                  speed={40}
+                  maxIterations={15}
+                />
+              </span>
             </span>
           </h1>
 

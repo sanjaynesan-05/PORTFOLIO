@@ -1,0 +1,16 @@
+.scroll-reveal {
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-reveal-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em 0.35em;
+  /* controls spacing between words */
+  justify-content: center;
+}
+
+.scroll-reveal-text .word {
+  display: inline-block;
+}
