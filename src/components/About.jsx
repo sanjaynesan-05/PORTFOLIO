@@ -34,7 +34,7 @@ const About = () => {
       {/* 🌌 Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-[#8e44ec]/20 blur-[120px] -z-10 rounded-full pointer-events-none mix-blend-screen" />
 
-      <div>
+      <div className="flex flex-col items-center justify-center w-full">
         <h2 className={`${styles.sectionHeadText} text-center tracking-wide`}>
           <DecryptedText
             text="About Me"
@@ -48,12 +48,12 @@ const About = () => {
         </h2>
       </div>
 
-      <div className="mt-6 flex justify-center w-full">
+      <div className="mt-6 flex flex-col items-center justify-center w-full">
         <ScrollReveal
           baseOpacity={0}
           baseRotation={2}
           blurStrength={4}
-          containerClassName="w-full flex justify-center"
+          containerClassName="w-full flex flex-col items-center justify-center"
           textClassName="text-secondary text-[17px] max-w-3xl leading-[28px] text-center font-bold justify-center"
         >
           {`I’m a creative technologist blending design aesthetics with full-stack precision. With 3+ years of experience, I build seamless digital products from concept to deployment. I specialize in React, Node.js, and design tools like Figma & Adobe Suite. I love exploring new technologies, contributing to open source, and sharing knowledge. I believe the best digital work happens where logic meets imagination.`}
