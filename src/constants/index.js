@@ -4,6 +4,7 @@ import web from "../assets/web.webp";
 import JSN from "../assets/company/JSN.webp";
 import Infomedia from "../assets/company/Infomedia.webp";
 import nandainfotech from "../assets/company/nandainfotech.webp";
+import iintern from "../assets/company/iintern.png";
 
 // 🖼️ Project Images
 import project2 from "../assets/kebaluxe.webp";
@@ -133,6 +134,19 @@ export const experiences = [
       "Collaborated with senior developers in agile sprints",
       "Performed debugging, testing, and documentation tasks",
       "Gained exposure to full-stack workflows and deployment processes",
+    ],
+  },
+  {
+    title: "Chief Frontend & Design Officer (CFDO)",
+    company_name: "I-Intern",
+    icon: iintern,
+    iconBg: "#383E56",
+    date: "July 2025 - February 2026",
+    points: [
+      "Led frontend and design strategy for I-Intern",
+      "Built responsive and user-centric interfaces using modern web technologies",
+      "Collaborated with cross-functional teams to deliver high-quality digital solutions",
+      "Drove innovation in design systems and development workflows",
     ],
   },
 ];

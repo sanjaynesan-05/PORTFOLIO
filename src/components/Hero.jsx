@@ -13,7 +13,6 @@ import ProfileCard from "./ProfileCard";
 import myAvatar from "../assets/me.webp";
 import logo from "../assets/logo.webp";
 import heroBg from "../assets/herobg.webp";
-import LetterGlitch from "./LetterGlitch";
 import DecryptedText from "./DecryptedText";
 
 const Hero = () => {
@@ -57,18 +56,8 @@ const Hero = () => {
       id="hero"
       aria-label="Hero Banner"
     >
-      {/* ✅ Glitch effect background */}
-      <div className="absolute inset-0 w-full h-full -z-10">
-        <LetterGlitch
-          glitchSpeed={50}
-          centerVignette={true}
-          outerVignette={true}
-          smooth={true}
-        />
-      </div>
-
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-0" />
+      
 
       <div className="absolute inset-0 top-[160px] max-w-7xl mx-auto px-5 sm:px-10 flex flex-col lg:flex-row items-center justify-center gap-12 z-10">
 

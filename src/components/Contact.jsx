@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import ScrambledText from "./ScrambledText";
 
 const Contact = () => {
   const formRef = useRef();
@@ -57,7 +58,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative overflow-hidden text-white py-20 px-4 sm:px-6 bg-black-gradient">
+    <div className="relative overflow-hidden text-white py-20 px-4 sm:px-6">
 
       <h2 className="relative z-20 text-4xl sm:text-5xl font-extrabold mb-6 text-white text-center">
         Contact
@@ -107,21 +108,29 @@ const Contact = () => {
 
         {/* 🌐 Contact Info */}
         <div className="flex flex-col justify-center w-full lg:w-1/2">
-          <h3 className="text-2xl font-semibold mb-4 text-white">Get in Touch</h3>
-          <a
-            href="mailto:sanjaynesan007@gmail.com"
-            className="flex items-center gap-2 text-gray-300 mb-2 hover:underline hover:text-blue-400 transition w-fit"
-          >
-            <FontAwesomeIcon icon={faEnvelope} /> sanjaynesan007@gmail.com
-          </a>
-          <a
-            href="tel:+919944064709"
-            className="flex items-center gap-2 text-gray-300 mb-6 hover:underline hover:text-green-400 transition w-fit"
-          >
-            <FontAwesomeIcon icon={faPhone} /> +91 99440 64709
-          </a>
+          <h3 className="text-2xl font-semibold mb-4 text-white">
+            <ScrambledText radius={50} speed={0.3}>Get in Touch</ScrambledText>
+          </h3>
+          <div className="flex flex-col gap-2 mb-6">
+            <a
+              href="mailto:sanjaynesan007@gmail.com"
+              className="flex items-center gap-2 text-gray-300 hover:underline hover:text-blue-400 transition w-fit"
+            >
+              <FontAwesomeIcon icon={faEnvelope} />
+              <ScrambledText radius={60} speed={0.4}>sanjaynesan007@gmail.com</ScrambledText>
+            </a>
+            <a
+              href="tel:+919944064709"
+              className="flex items-center gap-2 text-gray-300 hover:underline hover:text-green-400 transition w-fit"
+            >
+              <FontAwesomeIcon icon={faPhone} />
+              <ScrambledText radius={60} speed={0.4}>+91 99440 64709</ScrambledText>
+            </a>
+          </div>
 
-          <h4 className="text-2xl font-medium mb-4 text-white">Follow me</h4>
+          <h4 className="text-2xl font-medium mb-4 text-white">
+            <ScrambledText radius={50} speed={0.3}>Follow me</ScrambledText>
+          </h4>
           <div className="flex gap-5 flex-wrap text-2xl text-gray-400">
             <a
               href="https://linkedin.com/in/sanjaynesanj"

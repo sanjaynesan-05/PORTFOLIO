@@ -48,7 +48,6 @@ const ScrollReveal = ({
                 duration: 1.2,
                 scrollTrigger: {
                     trigger: el,
-                    scroller,
                     start: 'top 85%',
                     toggleActions: 'play none none reverse'
                 }
@@ -69,7 +68,6 @@ const ScrollReveal = ({
                 duration: 0.8,
                 scrollTrigger: {
                     trigger: el,
-                    scroller,
                     start: 'top 85%',
                     toggleActions: 'play none none reverse'
                 }

@@ -2,7 +2,6 @@ import React from "react";
 import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
-import ScrollReveal from "./ScrollReveal";
 import DecryptedText from "./DecryptedText";
 import { motion } from "framer-motion";
 
@@ -18,7 +17,7 @@ const ServiceCard = ({ index, title, icon }) => {
       className="w-full sm:w-[240px] cursor-pointer"
     >
       <div className="green-pink-gradient p-[1px] rounded-[20px] shadow-card transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(191,97,255,0.4)]">
-        <div className="bg-tertiary rounded-[20px] py-6 px-8 min-h-[260px] flex flex-col items-center justify-center text-center">
+        <div className="bg-tertiary/80 backdrop-blur-sm rounded-[20px] py-6 px-8 min-h-[260px] flex flex-col items-center justify-center text-center">
           <img src={icon} alt={title} className="w-16 h-16 object-contain mb-4 drop-shadow-lg" />
           <h3 className="text-white text-[18px] font-semibold">{title}</h3>
         </div>
@@ -49,15 +48,9 @@ const About = () => {
       </div>
 
       <div className="mt-6 flex flex-col items-center justify-center w-full">
-        <ScrollReveal
-          baseOpacity={0}
-          baseRotation={2}
-          blurStrength={4}
-          containerClassName="w-full flex flex-col items-center justify-center"
-          textClassName="text-secondary text-[17px] max-w-3xl leading-[28px] text-center font-bold justify-center"
-        >
-          {`I’m a creative technologist blending design aesthetics with full-stack precision. With 3+ years of experience, I build seamless digital products from concept to deployment. I specialize in React, Node.js, and design tools like Figma & Adobe Suite. I love exploring new technologies, contributing to open source, and sharing knowledge. I believe the best digital work happens where logic meets imagination.`}
-        </ScrollReveal>
+        <p className="text-secondary text-[17px] max-w-3xl leading-[28px] text-center font-bold justify-center">
+          I’m a creative technologist blending design aesthetics with full-stack precision. With 3+ years of experience, I build seamless digital products from concept to deployment. I specialize in React, Node.js, and design tools like Figma & Adobe Suite. I love exploring new technologies, contributing to open source, and sharing knowledge. I believe the best digital work happens where logic meets imagination.
+        </p>
       </div>
 
       {/* Cards */}

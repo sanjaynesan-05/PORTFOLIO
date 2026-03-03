@@ -14,6 +14,7 @@ const Designs = lazy(() => import("./components/Designs"));
 
 // 🧩 Non-lazy (small component)
 import Footer from "./components/Footer";
+import LetterGlitch from "./components/LetterGlitch";
 
 // ⏳ Optional fancy loader
 const Loader = () => (
@@ -25,7 +26,7 @@ const Loader = () => (
 // ⛳ HomePage Route
 const HomePage = () => (
   <Suspense fallback={<Loader />}>
-    <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+    <div>
       <Hero />
     </div>
     <About />
@@ -60,7 +61,15 @@ const DesignsPage = () => (
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="relative z-0 bg-primary">
+      <div className="fixed inset-0 w-full h-full -z-50 pointer-events-none">
+        <LetterGlitch
+          glitchSpeed={50}
+          centerVignette={true}
+          outerVignette={true}
+          smooth={true}
+        />
+      </div>
+      <div className="relative z-0 min-h-screen bg-black/50">
         <Suspense fallback={<Loader />}>
           <Navbar />
         </Suspense>

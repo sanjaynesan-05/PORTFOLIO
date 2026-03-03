@@ -10,11 +10,6 @@ const Footer = () => (
         Sanjay Nesan
       </div>
 
-      {/* Center: Made with Love */}
-      <div className="text-gray-400">
-        Made with ❤️
-      </div>
-
       {/* Right: Copyright */}
       <div className="text-gray-400 text-center md:text-right">
         &copy; {new Date().getFullYear()} Sanjay Nesan. All Rights Reserved.
